@@ -38,7 +38,7 @@ export const StepTakePhoto = (props: {
           }
         }}
       >
-        จัดไป
+        ถ่ายรูป
       </button>
     </div>
   )

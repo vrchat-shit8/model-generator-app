@@ -1,12 +1,18 @@
 import { sampleImage } from '@/libs/sample'
-import { Render } from '@/modules/apps/3DRender'
+import { Render, Type } from '@/modules/apps/3DRender'
 import { useEffect, useState } from 'react'
 
-function cropImage(imageSrc: string) {
-  const cropX = -220
+function cropImage(imageSrc: string, type: Type = 'cube') {
+  let cropX = -220
+  let cropWidth = 750
   const cropY = -80
-  const cropWidth = 750
   const cropHeight = 490
+
+  if (type === 'triangle') {
+    cropX = -100
+    cropWidth = 500
+  }
+
   const canvas = document.createElement('canvas')
   const ctx = canvas.getContext('2d')
   const img = new Image()
@@ -33,9 +39,10 @@ function cropImage(imageSrc: string) {
 
 export const Result = (props: { image: string }) => {
   const [file, setFile] = useState<string | null>(null)
+  const [type, setType] = useState<Type>('cube')
 
   useEffect(() => {
-    cropImage(props.image).then(result => {
+    cropImage(props.image, type).then(result => {
       setFile(result as string)
     })
 
@@ -53,7 +60,18 @@ export const Result = (props: { image: string }) => {
         <h1 className="text-2xl">ทำรูปให้แล้วคับ</h1>
         <p>และนี่คือผลลัพธ์จากรูปของคุณ เท่ป่ะ</p>
       </div>
-      <div className="h-[500px]">{file && <Render image={file} />}</div>
+      <select
+        className="w-full"
+        onChange={e => setType(e.currentTarget?.value as Type)}
+      >
+        <option value="cube">Cube (กล่อง)</option>
+        <option value="sphere">Sphere (กลม)</option>
+        <option value="triangle">Triangle (เหลี่ยม)</option>
+        <option value="cone">Cone (โคน)</option>
+      </select>
+      <div className="relative h-[500px]">
+        {file && <Render image={file} type={type as Type} />}
+      </div>
       <button
         className="z-10"
         onClick={() => {
