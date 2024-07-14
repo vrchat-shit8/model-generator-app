@@ -28,18 +28,31 @@ export const StepTakePhoto = (props: {
           />
         </div>
       </div>
-      <button
-        onClick={() => {
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-expect-error
-          const result = camera?.current?.takePhoto()
-          if (result) {
-            props.onTakePhoto(result)
-          }
-        }}
-      >
-        ถ่ายรูป
-      </button>
+      <div className="flex items-center gap-2">
+        <button
+          onClick={() => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
+            const result = camera?.current?.takePhoto()
+            if (result) {
+              props.onTakePhoto(result)
+            }
+          }}
+        >
+          ถ่ายรูป
+        </button>
+        <button
+          onClick={() => {
+            if (camera.current) {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-expect-error
+              camera.current.switchCamera()
+            }
+          }}
+        >
+          กลับด้านกล้อง
+        </button>
+      </div>
     </div>
   )
 }
