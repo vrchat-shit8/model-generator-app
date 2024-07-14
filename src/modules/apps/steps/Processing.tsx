@@ -4,7 +4,7 @@ export const Processing = (props: { onNextStep: () => void }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       props.onNextStep()
-    }, 3000)
+    }, 5000)
     return () => {
       clearTimeout(timer)
     }
@@ -19,7 +19,7 @@ export const Processing = (props: { onNextStep: () => void }) => {
           alt="Loading"
           className="mx-auto h-16"
         />
-        <p>กำลังประมวลผลข้อมูลโดยใช้ Quantum Computer</p>
+        <p>กำลังประมวลผลข้อมูลโดยใช้ AI บน Quantum Computer</p>
       </div>
     </div>
   )
