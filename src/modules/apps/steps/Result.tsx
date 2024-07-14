@@ -58,7 +58,7 @@ export const Result = (props: { image: string }) => {
     <div className="container space-y-4">
       <div className="space-y-0.5">
         <h1 className="text-2xl">ทำรูปให้แล้วคับ</h1>
-        <p>และนี่คือผลลัพธ์จากรูปของคุณ เท่ป่ะ</p>
+        <p>และนี่คือผลลัพธ์จากรูปของคุณ เท่ป่ะ ไม่เท่ถ่ายใหม่ ขอบคุณ</p>
       </div>
       <select
         className="w-full"

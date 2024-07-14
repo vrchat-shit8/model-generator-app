@@ -61,6 +61,7 @@
 
 @layer base {
   * {
+    font-family: 'Tahoma';
     @apply border-border;
   }
   body {
