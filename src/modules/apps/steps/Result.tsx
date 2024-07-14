@@ -55,7 +55,7 @@ export const Result = (props: { image: string }) => {
   }, [sampleImage])
 
   return (
-    <div className="container space-y-4 py-6">
+    <div className="container space-y-4">
       <div className="space-y-0.5">
         <h1 className="text-2xl">ทำรูปให้แล้วคับ</h1>
         <p>และนี่คือผลลัพธ์จากรูปของคุณ เท่ป่ะ</p>
@@ -72,14 +72,16 @@ export const Result = (props: { image: string }) => {
       <div className="relative h-[500px]">
         {file && <Render image={file} type={type as Type} />}
       </div>
-      <button
-        className="z-10"
-        onClick={() => {
-          window.location.reload()
-        }}
-      >
-        ถ่ายรูปใหม่
-      </button>
+      <div className="flex items-center gap-2">
+        <button
+          className="z-10"
+          onClick={() => {
+            window.location.reload()
+          }}
+        >
+          ถ่ายรูปใหม่
+        </button>
+      </div>
     </div>
   )
 }

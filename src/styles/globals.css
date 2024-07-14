@@ -68,10 +68,26 @@
   }
 
   .container {
-    @apply py-4;
+    @apply py-8;
   }
 
   .aspect-photo {
     aspect-ratio: 4 / 5;
+  }
+
+  .varkaria-animation {
+    animation: varkaria 0.2s ease-out infinite;
+  }
+}
+
+@keyframes varkaria {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(2);
+  }
+  100% {
+    transform: scaleX(1);
   }
 }
